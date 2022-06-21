@@ -12,10 +12,23 @@ app.set('view engine', 'ejs')
 
 const PORT = process.env.PORT || 3000;
 
+// routes
+const Collections = require('./routes/BookCollections')
 
-//================connection to db================
-require('./db/connection')
+app.use('/collections', Collections)
 
+// db 
+const connectDB = require('./db/connection')
 
-app.listen(PORT, () => 
-  console.log(`Listenig on port: http://localhost:${PORT}`))
+// connect to db & start server 
+const start = async ()=> {
+  try {
+    await connectDB()
+    app.listen(PORT, () => {
+      console.log(`Listenig on port: http://localhost:${PORT}`)})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+start()
