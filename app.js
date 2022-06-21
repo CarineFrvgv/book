@@ -12,5 +12,10 @@ app.set('view engine', 'ejs')
 
 const PORT = process.env.PORT || 3000;
 
+
+//================connection to db================
+require('./db/connection')
+
+
 app.listen(PORT, () => 
   console.log(`Listenig on port: http://localhost:${PORT}`))
