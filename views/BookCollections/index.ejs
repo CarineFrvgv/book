@@ -1,27 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="BookCollections/index.css">
-  <title>Collections</title>
-</head>
-<body>
-  <a href="/collections/create">create new</a>
+<%- include('../partials/header'); %>
 
-  <% for(var i=0; i < collections.length; i++) {%>
-  <div class="card">
-    <div class="img">pretend img</div>
-    <div class="container">
-      <% if(collections[i].name) {%>
-        <h3><%= collections[i].name %></h3>
-      <% } %>
-      <h4></h4>
-      <a href="/collections/<%= collections[i]._id%>">see collection</a>
-    </div>
-  </div>  
- <% } %>
+<link rel="stylesheet" href="BookCollections/index.css">
+
+<body>
+  
+
+    
+    <%- include('../partials/navbar'); %>
+    
+    <main class="container">
+
+    <% for(var i=0; i < collections.length; i++) {%>
+      <div class="collection-card">
+      <div class="img-section"></div>
+      <div class="collection-section">
+        <% if(collections[i].name) {%>
+          <h3 class="collection-name"><%= collections[i].name %></h3>
+        <% } %>
+        <h4 class="books-count">3 books</h4>
+        <a href="/collections/<%= collections[i]._id%>">see collection</a>
+      </div>
+    </div>  
+    <% } %>
+  </main>
 
 
 </body>
