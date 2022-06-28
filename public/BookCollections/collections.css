@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{ 
+  font-family: 'Raleway', sans-serif;
+  background: rgb(31, 40, 82);
+}
+
+
+.form-container{
+  margin-left: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2em ;
+}
+
+.search-form  input{
+  padding: 5px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+.search-form button{
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: medium;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  border: none;
+  background: none;
+  color: #f8f8f8;
+}
+
+
+
+
+
+
+.openform-btn{
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: capitalize;
+
+  color: white;
+  background: brown;
+  border: 2px solid brown;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  padding: .5em;
+  /* margin-top:2em; */
+}
+
+
+
+
+.popup{
+  display: none;
+  position: fixed; 
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll;
+
+  background-color: rgba(0, 0, 0, 0.694); 
+  justify-content: center;
+  align-items: center;
+}
+
+
+.popup-container{
+  width: 30%;
+  background-color: white;
+  padding: 1em;
+  border-radius: 15px;
+}
+
+.close-btn{
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form h2{
+  text-align: center;
+  margin: 15px 0 25px 0;
+}
+
+.form .form-element{
+  margin: 15px 0 ;
+}
+
+.form .form-element label{
+  font-size: medium;
+}
+
+
+.form .form-element input{
+  padding: 5px;
+  margin-top: 10px ;
+  width: 100%;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+.form .form-element textarea{
+  margin-top: 10px ;
+  width: 100%;
+  height: 150px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+
+.create-btn{
+  width: 100%;
+  color: white;
+  background: brown;
+  border: 2px solid brown;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  margin: 15px 0 0 0 ;
+  padding: .5em;
+}
+
+
+
+
+
+
+
+.main-container{
+  margin-left: 250px;
+  padding: 1em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+ 
+}
+
+.collection-card {
+  height: 8em;
+  width: 85%;
+  margin: 1em;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: row;
+
+  background: rgb(246, 246, 246);
+}
+
+.img-section{
+  width: 20%;
+  border-radius: 15px 0 0 15px;
+  
+  background: white;
+}
+
+.collection-section{
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.collection-name{
+  font-size: large;
+} 
+
+.popupDelete{
+  display: none;
+  position: fixed; 
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll;
+
+  background-color: rgba(0, 0, 0, 0.694); 
+  justify-content: center;
+  align-items: center;
+}
+
+.popupDelete-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 30%;
+  height: 250px;
+  background-color: white;
+  padding: 1em;
+  border-radius: 15px;
+}
+.popupDelete-container .form-element h2{
+  text-align: center;
+}
+
+.popupDelete-container .form-element{
+  margin: 10px 0 ;
+}
+.collection-card button{
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  padding: .5em;
+  width: 100%;
+  color: white;
+  background: brown;
+  border: 2px solid brown;
+  border-radius: 10px;
+}
