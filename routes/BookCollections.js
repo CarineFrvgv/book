@@ -7,6 +7,9 @@ router.route('/')
   .get(BookCollectionsController.getAllBookCollections)
   .post(BookCollectionsController.searchCollection)
 
+router.route('/delete/:id')
+  .post(BookCollectionsController.deleteBookCollection)
+
 router.route('/create')
   .get(BookCollectionsController.getCreateBookCollection)
   .post(BookCollectionsController.createBookCollection)

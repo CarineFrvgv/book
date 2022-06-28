@@ -5,7 +5,7 @@ const BookCollection = require('../models/BookCollection')
 const getAllBookCollections = async (req, res) =>{
   try {
     const collections = await BookCollection.find().sort({date: -1})
-    res.render('BookCollections/index', {collections: collections})
+    res.render('BookCollections/AllCollections', {collections: collections})
   }
   catch (err){
     console.log(err)
@@ -46,10 +46,10 @@ const createBookCollection = async (req, res) => {
 
 const deleteBookCollection = async (req, res) => {
   try {
-    // await BookCollection.deleteOne({_id: body.params.id})
-    // redirect('/collections')
+    await BookCollection.deleteOne({_id: req.params.id})
+    res.redirect('/collections')
     console.log('deleted')
-    redirect('/collections')
+
   } catch (error) {
     console.log(error)
   }
@@ -58,7 +58,7 @@ const deleteBookCollection = async (req, res) => {
 const searchCollection = async (req, res) =>{
   try {
     const collections = await BookCollection.find({name: {$regex: req.body.search, $options: 'i'}})
-    res.render('BookCollections/index', {collections: collections})
+    res.render('BookCollections/AllCollections', {collections: collections})
   } catch (error) {
     console.log(error)
   }

@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="BookCollections/collections.css">
+<script src="https://kit.fontawesome.com/7fba21c015.js" crossorigin="anonymous"></script>
+
+<%- include('../partials/navbar'); %>
+
+<!-- pop up form -->
+<section class="section-form">
+
+  <div class="form-container">
+    <button onclick="popup()" class="openform-btn" >create collection</button>
+
+    <a href="/collections">all collections</a>
+
+    <form class="search-form"  action="/collections" method="post">
+
+        <input type="text" name="search" id="" >
+        <button class="search-btn" type="submit" href=""><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+
+    </form>
+  </div> 
+
+  <div class="popup section">
+    <div class="popup-container section">
+      <div onclick="closePopup()" class="close-btn">&times;</div>
+
+      
+      <form class="form" action="/collections/create" method="post">
+        
+        <h2>create new collection</h2>
+        
+        <div class="form-element">
+          <label for="name">Name your collection</label>
+          <input type="text" name="name">
+        </div>
+        
+        <div class="form-element">
+          <label for="">Add a description</label>
+          <textarea name="description" id="" cols="30" rows="10"></textarea>
+        </div>
+        
+        <div class="form-element">
+          <button class="create-btn" type="submit">Create</button>
+        </div>
+        
+      </form>
+    </div>
+ </div>
+</section>
+
+  
+<main class="main-container">
+
+  <% for(var i=0; i < collections.length; i++) {%>
+    <div class="collection-card">
+    <img  class="img-section" src="imgs/profile-pic.jpg" alt="">
+    <div ></div>
+    <div class="collection-section">
+      <% if(collections[i].name) {%>
+        <h3 class="collection-name"><%= collections[i].name %></h3>
+      <% } %>
+      <h4 class="books-count">3 books</h4>
+      <a href="/collections/<%= collections[i]._id%>">see collection</a>
+
+
+      <!-- delete pop up -->
+      <button onclick="popupDelete()">main</button>
+
+      <div class="popupDelete">
+        <div class="popupDelete-container">
+          <div class="form-element">
+            <h2>are you sure you want to delete this collection?</h2>
+          </div>
+          <div class="form-element">
+            <button onclick="closePopupDelete()">cancel</button>
+          </div>
+
+          <form action="/collections/delete/<%= collections[i]._id%>" method="post">
+            <div class="form-element">
+              <button type="submit">delete</button>
+            </div>
+              
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </div>  
+  <% } %>
+</main>
+
+<script src="script/index.js"></script>
+</body>
+</html>
