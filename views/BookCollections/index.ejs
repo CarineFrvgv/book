@@ -1,29 +1,66 @@
-<%- include('../partials/header'); %>
-
 <link rel="stylesheet" href="BookCollections/index.css">
+<script src="https://kit.fontawesome.com/7fba21c015.js" crossorigin="anonymous"></script>
 
-<body>
+<%- include('../partials/navbar'); %>
+
+<section class="form-container">
   
+  <form class="open-btn-container"  action="/collections" method="post">
+   
+    <button onclick="popup()" class="openform-btn" >create collection</button>
 
+      <input type="text" name="search" id="" >
+      <button type="submit" href=""><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+
+    </form>
     
-    <%- include('../partials/navbar'); %>
-    
-    <main class="container">
 
-    <% for(var i=0; i < collections.length; i++) {%>
-      <div class="collection-card">
-      <div class="img-section"></div>
-      <div class="collection-section">
-        <% if(collections[i].name) {%>
-          <h3 class="collection-name"><%= collections[i].name %></h3>
-        <% } %>
-        <h4 class="books-count">3 books</h4>
-        <a href="/collections/<%= collections[i]._id%>">see collection</a>
-      </div>
-    </div>  
-    <% } %>
-  </main>
+  <div class="popup">
+    <div class="popup-container">
+      <div onclick="closePopup()" class="close-btn">&times;</div>
 
+      
+      <form class="form" action="" method="post">
+        
+        <h2>create new collection</h2>
+        
+        <div class="form-element">
+          <label for="name">Name your collection</label>
+          <input type="text">
+        </div>
+        
+        <div class="form-element">
+          <label for="">Add a description</label>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        
+        <div class="form-element">
+          <button class="create-btn" type="submit">Create</button>
+        </div>
+        
+      </form>
+    </div>
+ </div>
+</section>
 
+  
+<main class="main-container">
+
+  <% for(var i=0; i < collections.length; i++) {%>
+    <div class="collection-card">
+    <img  class="img-section" src="imgs/profile-pic.jpg" alt="">
+    <div ></div>
+    <div class="collection-section">
+      <% if(collections[i].name) {%>
+        <h3 class="collection-name"><%= collections[i].name %></h3>
+      <% } %>
+      <h4 class="books-count">3 books</h4>
+      <a href="/collections/<%= collections[i]._id%>">see collection</a>
+    </div>
+  </div>  
+  <% } %>
+</main>
+
+<script src="script/index.js"></script>
 </body>
 </html>

@@ -22,8 +22,13 @@ const getBookCollection = async (req, res) => {
   }
 }
 
-const getCreateBookCollection = (req, res) => {
-  res.render('BookCollections/createCollection')
+const getCreateBookCollection = async (req, res) => {
+  try {
+    res.render('BookCollections/create')
+    
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const createBookCollection = async (req, res) => {
@@ -39,9 +44,31 @@ const createBookCollection = async (req, res) => {
   }
 }
 
+const deleteBookCollection = async (req, res) => {
+  try {
+    // await BookCollection.deleteOne({_id: body.params.id})
+    // redirect('/collections')
+    console.log('deleted')
+    redirect('/collections')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const searchCollection = async (req, res) =>{
+  try {
+    const collections = await BookCollection.find({name: {$regex: req.body.search, $options: 'i'}})
+    res.render('BookCollections/index', {collections: collections})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getAllBookCollections,
   getBookCollection,
   getCreateBookCollection,
   createBookCollection,
+  deleteBookCollection,
+  searchCollection
 }

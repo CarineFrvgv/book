@@ -5,6 +5,7 @@ const BookCollectionsController = require('../controllers/BookCollectionsControl
 
 router.route('/')
   .get(BookCollectionsController.getAllBookCollections)
+  .post(BookCollectionsController.searchCollection)
 
 router.route('/create')
   .get(BookCollectionsController.getCreateBookCollection)
@@ -12,6 +13,7 @@ router.route('/create')
 
 router.route('/:id')
   .get(BookCollectionsController.getBookCollection)
+  .delete(BookCollectionsController.deleteBookCollection)
 
 
 module.exports = router
